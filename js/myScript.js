@@ -175,7 +175,10 @@ function convertFrToCel(fr){
 console.log(1/0)
 
 // function expression
-var exp = function( num1 , num2 ){
+// var exp = function( num1 , num2 ){
+//     return num1 + num2
+// }
+var exp = ( num1 , num2 )=>{
     return num1 + num2
 }
 console.log(exp(3,4))
