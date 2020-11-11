@@ -1,0 +1,10 @@
+body{
+    background-color: #eee;
+    height: 3000px;
+}
+#openAdd:hover{
+    background-color: red;
+}
+#addtaskform{
+    display: none;
+}
