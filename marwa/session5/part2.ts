@@ -131,6 +131,6 @@ console.log(newClass.countx)
 let obj2 = new newClass('hello')
 let obj3 = new newClass('hello')
 let obj31 = new newClass('hello')
-console.log(newClass.count)
+// console.log(newClass.count)
 
 
