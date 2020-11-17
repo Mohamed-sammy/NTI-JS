@@ -32,7 +32,7 @@ fetch('https://jsonplaceholder.typicode.com/posts',{})
     // if(res.status==200){
 
     // }
-console.log(res)
+console.log(res.body)
 })
 
 
