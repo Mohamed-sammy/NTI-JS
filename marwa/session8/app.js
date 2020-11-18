@@ -25,31 +25,87 @@ edit task(id)
 
 
 
-tasks = require('./myfunctions')
-const { boolean } = require('yargs')
-const yargs = require('yargs')
-yargs.command({
-    command:'addTask',
-    describre:'',
-    builder:{
-        id:{
-            describre:'',
-            demandOption:true,
-            type: 'number'
-        },
-        taskTitle:{
-            type:'string'
-        },
-        status:{ 
-            type:'boolean'
-        }
-    },
-    handler: function(argv){
-        obj ={id: argv.id, taskTitle:argv.taskTitle,status:argv.status}
-        tasks.addTask(obj)
-    }
+// tasks = require('./myfunctions')
+// const yargs = require('yargs')
+// yargs.command({
+//     command:'addTask',
+//     describre:'',
+//     builder:{
+//         id:{
+//             describre:'',
+//             demandOption:true,
+//             type: 'number'
+//         },
+//         taskTitle:{
+//             type:'string'
+//         },
+//         status:{ 
+//             type:'boolean'
+//         }
+//     },
+//     handler: function(argv){
+//         obj ={id: argv.id, taskTitle:argv.taskTitle,status:argv.status}
+//         tasks.addTask(obj)
+//     }
+// })
+// yargs.argv
+
+
+
+// const request = require('request')
+// const url ="https://jsonplaceholder.typicode.com/posts"
+// request({url, json:true},(error,{body})=>{
+//     //if(error) return
+//     body.forEach(element => {
+//         console.log(element.userId)
+//     });
+// })
+const https = require('https')
+const url ="https://jsonplaceholder.typicode.com/posts"
+const request = https.request(url, (res)=>{
+    let data =""
+    res.on('data',(x)=>{
+        data+= x.toString()
+    })
+    res.on('end',() =>{
+        const myres = JSON.parse(data)
+        console.log(myres)
+    })
 })
-yargs.argv
+request.on('error',(error)=>{
+    console.log(error)
+})
+
+request.end()
+
+/*
+getApidata =>data=api.body
+showtask --id => object 
+showusertasks --id => array
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
