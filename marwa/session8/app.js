@@ -15,9 +15,52 @@ edit task(id)
 // addTask(2,'task 2', false)
 // addTask(3,'task 3', false)
 // addTask(4,'task 4', false)
-const tasks = require('./myfunctions')
+//const tasks = require('./myfunctions')
+// console.log(tasks.readTasks())
 
-console.log(tasks.readTasks())
+// console.log(process.argv)
+// if(process.argv[2]=="read"){
+//     console.log(tasks.readTasks())
+// }
+
+
+
+tasks = require('./myfunctions')
+const { boolean } = require('yargs')
+const yargs = require('yargs')
+yargs.command({
+    command:'addTask',
+    describre:'',
+    builder:{
+        id:{
+            describre:'',
+            demandOption:true,
+            type: 'number'
+        },
+        taskTitle:{
+            type:'string'
+        },
+        status:{ 
+            type:'boolean'
+        }
+    },
+    handler: function(argv){
+        obj ={id: argv.id, taskTitle:argv.taskTitle,status:argv.status}
+        tasks.addTask(obj)
+    }
+})
+yargs.argv
+
+
+
+
+
+
+
+
+
+
+
 
 
 

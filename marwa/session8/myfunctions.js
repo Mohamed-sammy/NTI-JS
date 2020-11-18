@@ -6,11 +6,11 @@
 
 
 const fs = require('fs')
-const addTask = function(id, taskTitle, status){
+const addTask = function(task){
     data = readTasks()
-    task ={
-        id,taskTitle, status
-    }
+    // task ={
+    //     id,taskTitle, status
+    // }
     data.push(task)
     fs.writeFileSync('myTasks.json',JSON.stringify(data))
 }
@@ -28,27 +28,27 @@ const findTask= function(id){
     mySearch =data.findIndex(ele=>{
         return ele.id == id
     })
-    if(mySearch==-1) return
+    if(mySearch==-1) throw new Error('not found')
     return mySearch    
 }
 const deleteTask = function(id){
-    mySearch = findTask(id)
     try{
+        mySearch = findTask(id)
         data.splice(mySearch,1)
         fs.writeFileSync('myTasks.json',JSON.stringify(data))    
     }
     catch(e){
-        console.log('no data found')
+        console.log(e.message)
     }
 }
 const editTask = function(id,obj){
-    mySearch = findTask(id)
     try{
+        mySearch = findTask(id)
         data[mySearch]=obj
         fs.writeFileSync('myTasks.json',JSON.stringify(data))    
     }
     catch(e){
-        console.log("no data found")
+        console.log(e.message)
     }
 }
 module.exports = {
