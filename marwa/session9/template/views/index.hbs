@@ -1,3 +1,18 @@
 {{>header}}
         hello world! {{name}}
+
+    {{#if status}}
+       <h3> hello </h3>
+       {{else}} <h3>no</h3>
+    {{/if}}
+
+{{#each data}}
+    {{this}}
+{{/each}}
+
 {{>footer}}
+
+{{#each x}}
+    {{this.name}}
+    {{else}} no data
+{{/each}}

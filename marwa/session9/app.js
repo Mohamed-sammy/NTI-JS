@@ -10,11 +10,20 @@ app.set('view engine','hbs')
 app.set('views', viewsDir)
 hbs.registerPartials(partialsDir)
 app.use(express.static(publicDir))
-app.get('',(req,res)=>{
+
+app.get('/about',(req,res)=>{
     res.render('index',{
-        name: 'marwa'
+        name: 'marwa',
+        status:false,
+        data :[1,2,3,4,5],
+        x:[
+            {name:'a', age:30},
+            {name:'b',age:40}
+        ]
     })
 })
+app.get('*',(req,res)=>res.render('404'))
+
 app.listen(port)
 
 
