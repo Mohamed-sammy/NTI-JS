@@ -11,7 +11,7 @@ router.post('/user/add',(req,res)=>{
             data:user
         })
     }).catch((e)=>{
-        res.status(500).send({
+        res.status(200).send({
             status:0,
             data:e
         })
@@ -42,6 +42,47 @@ router.get('/users/:id',(req,res)=>{
     .catch(e=>{
         res.send({status:0,data:{},err:e})
     })
+})
+
+router.patch('/users/:id',async(req,res)=>{
+    const data = req.body
+    const keys = Object.keys(req.body) //name 
+    console.log(keys)
+    //['name,'pass,age,email]
+    const allowed =['name','age','email']
+    const isAvailable = keys.every(val=> allowed.includes(val) )
+    if(!isAvailable) res.status(200).send('error')
+/* x = api console.log x    x= find  update x*/
+/* findth(()) */
+       /*
+       hazem****
+       findByIdAndUpdate(req.params.id, req.body,
+  })
+    .then((data) => {if(!data)res.send('not found')
+    res.json(data))}
+    .catch((err) => res.status(400).json(err));
+ */
+try{
+        const u =await User.findByIdAndUpdate(req.params.id,req.body,{})
+        if(!u) return res.send('not found')
+        res.send(u)
+ 
+    }
+    catch(e){
+        res.send(e)
+
+    }
+})
+
+router.delete('/users/:id',async(req,res)=>{
+    try{
+        const u =await User.findByIdAndDelete(req.params.id)
+        if(!u) return res.send('not found')
+        res.send(u)
+    }
+    catch(e){
+        res.send(e)
+    }
 })
 
 module.exports = router
