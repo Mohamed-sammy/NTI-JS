@@ -89,7 +89,7 @@ router.delete('/users/:id',async(req,res)=>{
 router.post('/login',async(req,res)=>{
     data = req.body //{emai:  , pas.....}
 try{
-    const myuser = await User.findByCredintials(data.email,data.password)
+    const myuser = await User.findByCredintials(data.name,data.password)
     const token = await myuser.generateToken()
     res.send({
         status:1,
@@ -101,6 +101,33 @@ try{
 catch(e){
 res.send('unauthorized')
 }
+})
+
+router.post('/logout',auth,async(req,res)=>{
+    try{
+        /*req.user.tokens//all user data tokeb=ns
+        req.token // current token*/
+        req.user.tokens = req.user.tokens.filter((singletoken)=>{
+            return singletoken!= req.token
+        })
+        //[1,2,3,4,5]  3   5!=3 [3,2,4,5]
+        await req.user.save()
+        res.send('loggedout')
+    }
+    catch(e){
+res.send(e)
+    }
+
+})
+router.post('/logoutAll',auth,async(req,res)=>{
+    try{
+        req.user.tokens=[]
+        await req.user.save()
+        res.send('loggedout')
+    }
+    catch(e){
+res.send(e)
+    }
 })
 
 module.exports = router

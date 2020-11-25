@@ -7,7 +7,8 @@ const mySchema = new mongoose.Schema({
 name:{
     type:String,
     trim:true,
-    required:true
+    required:true,
+    unique:true
 },
 password:{
     type:String,
@@ -49,9 +50,20 @@ tokens:[
             required:true
         }
     }
-]
+],
+address:[
+    {
+        add:{
+            name:{type:String},
+            city:{type:String}
+            }
+}]
 })
-
+mySchema.virtual('task',{ //relation
+    ref:'Task',
+    localField:'_id',
+    forignField:'owner'
+})
 mySchema.methods.toJSON = function(){
    // const user = this
     const userobj =  this.toObject()
@@ -67,8 +79,8 @@ mySchema.methods.generateToken=async function(){
     return token
 }
 
-mySchema.statics.findByCredintials=async function(email, pass){
-    const user = await User.findOne({email}) 
+mySchema.statics.findByCredintials=async function(name, pass){
+    const user = await User.findOne({name}) 
     if(!user) throw new Error('cann\'t login')
     checkPass = await bcrypt.compare(pass, user.password)
     if(!checkPass) throw new Error('cann\'t login')
