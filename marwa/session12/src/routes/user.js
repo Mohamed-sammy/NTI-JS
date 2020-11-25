@@ -1,6 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
-
+const auth = require('../middleware/authmiddleware')
 const router = new express.Router()
 
 router.post('/user/add',(req,res)=>{
@@ -18,8 +18,8 @@ router.post('/user/add',(req,res)=>{
     })
 })
 
-router.get('/users',(req,res)=>{
-
+router.get('/users',auth,(req,res)=>{
+//res.send(req.user)
     User.find({}).then((users)=>{
         res.status(200).send(
             {
