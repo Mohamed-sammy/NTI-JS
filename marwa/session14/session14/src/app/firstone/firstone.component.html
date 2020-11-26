@@ -1,0 +1,36 @@
+<p>firstone works!</p>
+<div [innerHTML]="bindName"></div>
+{{name}}
+<h3>property bindig</h3>
+<button [attr.disabled]="ifDisabled">btn</button>
+<table border="2">  
+<tr>
+    <td [style.color]="'green'">name1</td>
+    <!--style="color:'green'"-->
+    <td >name2</td>
+    <td>name3</td>
+</tr>
+<tr>
+    <td class="a">a1</td>
+    <td [attr.colspan]="cols" [className]='cl'>a2</td>
+</tr>
+</table>
+{{5+3}}
+<p *ngFor="let one of x">{{one}}</p>
+
+<div [className]="getStatus()?'err':'pass'">err</div>
+
+<div [class.a]="ifDisabled">hello</div>
+<div [ngClass]="['a','b']">hello</div>
+<div class="a b"></div>
+
+<!-- on-click="clickHandel()" -->
+<p (click)="clickHandel(); addNewClick();">{{clickCount}}</p>
+<button [disabled]="ifDisabled">hello</button>
+
+
+
+
+
+
+

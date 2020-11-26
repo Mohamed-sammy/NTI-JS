@@ -130,5 +130,18 @@ res.send(e)
     }
 })
 
+router.get('/me',auth,async(req,res)=>{
+    res.send(req.user)
+})
+
+router.delete('/me',auth,async(req,res)=>{
+    try{
+await req.user.remove()
+res.send('removed')
+    }
+    catch(e){
+        res.send(e)
+    }
+})
 module.exports = router
 

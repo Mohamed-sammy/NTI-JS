@@ -1,0 +1,10 @@
+.a{
+    background-color: black;
+    color:white;
+}
+
+.err{
+    color:red
+}
+
+.pass{color: green;}

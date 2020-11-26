@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator');    
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+const Task = require('./task');
 
 const mySchema = new mongoose.Schema({
 name:{
@@ -62,7 +63,7 @@ address:[
 mySchema.virtual('task',{ //relation
     ref:'Task',
     localField:'_id',
-    forignField:'owner'
+    foreignField:'owner'
 })
 mySchema.methods.toJSON = function(){
    // const user = this
@@ -94,5 +95,13 @@ mySchema.pre('save' , async function(next){
     //user.isModified => hash user on pass update
     next()
 })
+
+//remove all user tasks on user remove
+mySchema.pre('remove',async function(next){
+    const user= this
+    await Task.deleteMany({owner:user._id})
+    next()
+})
+
 const User = mongoose.model('User',mySchema)
 module.exports = User

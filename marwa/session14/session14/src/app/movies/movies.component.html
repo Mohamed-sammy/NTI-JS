@@ -1,0 +1,10 @@
+<input (input)="handelInput($event)">
+<h3>{{searchKey}}</h3>
+
+<section>
+    <ul>
+        <li *ngFor="let movie of filteredMovies">
+           {{movie.name}}
+        </li>
+    </ul>
+</section>
