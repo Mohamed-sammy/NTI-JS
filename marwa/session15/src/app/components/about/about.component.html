@@ -1,0 +1,30 @@
+<section class="container">
+    <p>about works!</p>
+    <!--ngModel => two way binding require import in appmodule-->
+    <input type="text" [(ngModel)]="monthNum">
+    {{monthNum}}
+    <div [ngSwitch]="monthNum">
+        <p *ngSwitchCase=null>please enter month number</p>
+        <ng-container *ngFor="let mon of months;">
+            <p  *ngSwitchCase="mon.monthNum">
+                {{mon.monthName}}
+            </p>
+        </ng-container>
+    </div>
+    <div *ngIf="monthNum>12 || monthNum<=0">
+        Invalid month number
+        </div>
+
+</section>
+
+
+
+<div *ngIf="monNum==5; then xBlock; else monNumElse">
+    5
+</div>
+
+<ng-template #monNumElse>
+    msh 3
+</ng-template>
+
+<div #xBlock>x block</div>

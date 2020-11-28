@@ -1,0 +1,19 @@
+src -> app -> pages , components, models
+import FormsModule inside app.module
+
+component directive
+structural directives ngfor, ngif, ngswitch...
+attributes directives ngclass,ngmodel 
+
+custom =>my own directives
+
+*ngFor => index, odd, even, last, first, count
+
+
+ monthNum: number=2;
+ months = [{ 1: 'Jan' }, { 2: 'Feb' }, { 3: 'March' }];
+
+<input type="text" [(ngModel)]='monthNum' >  2
+<div *ngFor="let month of months">  {1:'jan'}
+  <p>{{month.monthNum}}</p> {1:'jan'}.2
+</div>

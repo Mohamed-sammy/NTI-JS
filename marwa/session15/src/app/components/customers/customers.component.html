@@ -1,0 +1,17 @@
+<input (input)="addCustomer($event)">
+
+<section class="container">
+    <h1 class="p-3 bg-success text-white">customers</h1>
+    <table class="table"> 
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>balance</th>
+        </tr>
+        <tr *ngFor="let customer of customers; let i=index;let o=odd; let e=even; let f = first ; trackBy:trackFun"[ngClass]="{oddrow: o, evenrow:e, f:f}">
+            <td>{{ i+1 }}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.balance}}</td>
+        </tr>
+    </table>
+</section>
