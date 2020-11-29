@@ -1,4 +1,4 @@
 <p>articles works!</p>
 <section>
-    <app-card *ngFor="let a of articles" [article]=a></app-card>
+    <app-card *ngFor="let a of articles|slice:-3" [article]=a></app-card>
 </section>

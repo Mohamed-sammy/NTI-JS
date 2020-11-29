@@ -1,0 +1,18 @@
+<!-- template driven form -->
+<form #add="ngForm" (ngSubmit)="handelFormSubmit(add)">
+    <input type="text" name="title" ngModel>
+    <input type="text" name="content" ngModel >
+    <button type="submit">add</button>
+</form>
+
+<div *ngFor="let t of todos; let i=index">
+    {{t.title}} - {{t.content}} - <button (click)="deleteTask(i)">del</button>-<button (click)="editTask(i); ">edit</button>
+</div>
+
+<div *ngIf="status">
+    <form #edit="ngForm"(ngSubmit)="handelFormEdit(edit,loc)">
+        <input type="text" name="title" [(ngModel)]='title' >
+        <input type="text" name="content" [(ngModel)]="content" >
+        <button type="submit">edit</button>
+    </form>
+</div>

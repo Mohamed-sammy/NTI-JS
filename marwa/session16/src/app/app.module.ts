@@ -8,6 +8,8 @@ import { C2Component } from './components/c2/c2.component';
 import { from } from 'rxjs';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { CardComponent } from './components/card/card.component';
+import { LfcCComponent } from './components/lfc-c/lfc-c.component';
+import { TodoComponent } from './components/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CardComponent } from './components/card/card.component';
     C1Component,
     C2Component,
     ArticlesComponent,
-    CardComponent
+    CardComponent,
+    LfcCComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

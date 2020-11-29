@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'session16';
+  title = [
+    {'a':1},
+    {'a':2},
+    {'a':3},
+    {'a':4},
+    {'a':5},
+    {'a':6}
+      ];
 }

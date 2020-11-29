@@ -9,6 +9,8 @@ export class C1Component implements OnInit {
   x :number= 5
   num:number = 1
 msg:string=null
+d:Date = new Date();
+name = "hello All"
   constructor() { }
 
   ngOnInit(): void {

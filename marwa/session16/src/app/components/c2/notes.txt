@@ -3,3 +3,23 @@
 
 
         @input    @output
+
+PIPES
+variable or expression | pipeoperator : pipearg
+
+
+life cycle
+onchange
+oninit
+docheck
+aftercontentinit
+aftercontentchecked
+        -onchange
+        oninit
+        docheck
+        aftercontentinit
+        aftercontentchecked
+        after view init
+        after view checked
+after view init
+after view checked

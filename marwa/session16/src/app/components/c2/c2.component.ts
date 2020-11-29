@@ -10,7 +10,10 @@ export class C2Component implements OnInit {
   @Output() changeX: EventEmitter<number> = new EventEmitter();
   num =1
   msg : string = null;
-  constructor() { }
+
+  constructor() {
+    console.log(this.a)
+   }
 
   ngOnInit(): void {
   }
