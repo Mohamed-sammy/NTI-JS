@@ -1,0 +1,5 @@
+-communication between components (input - output)
+        -parent -> child (input)    -child->parent (output)
+
+
+        @input    @output

@@ -1,0 +1,10 @@
+<p>c2 works!</p>
+<div *ngIf="isNumber(a); else notNumber">
+{{a}}
+</div>
+<ng-template #notNumber>invalid input</ng-template>
+<input [(ngModel)]='num'>
+<button (click)="getResult()">mul</button>
+<div *ngIf="msg!=null">
+    {{msg}}
+</div>
