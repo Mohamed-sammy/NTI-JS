@@ -1,0 +1,13 @@
+-template driven form
+user [
+    name
+    email
+    gender ->male , female => 0,1
+    martial status ->true, false
+    country -> select country id
+    address => {government, street name, building num}
+    phone
+    dob
+]
+
+- reactive form
