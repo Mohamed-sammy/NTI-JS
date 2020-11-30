@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddformComponent } from './componentes/user/addform/addform.component';
 import { ReactiveAddFormComponent } from './componentes/user/reactive-add-form/reactive-add-form.component';
+import { FormBuilderAddComponent } from './componentes/user/form-builder-add/form-builder-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddformComponent,
-    ReactiveAddFormComponent
+    ReactiveAddFormComponent,
+    FormBuilderAddComponent
   ],
   imports: [
     BrowserModule,
