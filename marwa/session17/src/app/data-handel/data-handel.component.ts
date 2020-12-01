@@ -14,13 +14,19 @@ export class DataHandelComponent implements OnInit {
   img2=[]
   img3=[]
   constructor(public gSer:GlobalService) {
-    this.gSer.getPosts().subscribe(data=>{
+    this.gSer.getPosts().subscribe(
+      data=>{
     //  console.log(data)
       this.posts=data
-    },()=>{//if error
+    }
+    ,
+    ()=>{
+      //if error 
+      
     },
-    ()=>{//next
-    console.log(this.posts)
+    ()=>{
+      //next
+      console.log(this.posts)
     })
     this.gSer.getImages().subscribe(data=>{
       console.log(data)

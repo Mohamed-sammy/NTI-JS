@@ -1,0 +1,9 @@
+<div>
+   <a routerLink="/shop/{{product.products_id}}"> {{product.products_name}}</a>
+    <img src='{{_pro.imgUrl}}{{product.default_images}}' width="50" height="50">
+    {{product.products_price}}
+    {{product.product_price_discount}}
+    {{product.discount_price}}
+    {{product.flash_price}}
+    <br>{{handelPrice(product)}}
+</div>

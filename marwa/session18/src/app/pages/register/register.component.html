@@ -1,0 +1,19 @@
+<h2>Register</h2>
+<h1>{{errRegister}}</h1>
+<h2>{{msg}}</h2>
+<form [formGroup] ="userModel" (ngSubmit)="addUser()">
+    <div *ngIf="firstName.invalid && (firstName.dirty|| firstName.touched) ">
+error
+<div *ngIf="firstName?.errors.required">firstname req</div>
+    </div>
+    <input placeholder="first name" formControlName='firstName'>
+    <input placeholder="last name" formControlName='lastName'>
+    <input placeholder="email" formControlName="email">
+    <input placeholder="phone" formControlName="phone">
+    <label>Gender</label>
+    <input type="radio" value="0" name="gender" formControlName="gender"> Male
+    <input type="radio" value="1" name="gender" formControlName="gender"> FeMale
+    <input type="password" placeholder="password" formControlName="password"> 
+    <input type="password" placeholder="retype password" formControlName="re_password"> 
+    <button type="submit" [disabled]="userModel.invalid" >add</button>
+</form>

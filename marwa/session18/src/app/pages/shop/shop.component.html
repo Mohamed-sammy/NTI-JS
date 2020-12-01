@@ -1,0 +1,6 @@
+<div *ngIf="isload; else data">loading now.......</div>
+<ng-template #data>
+<div *ngFor="let pro of allProducts">
+    <app-productcard [product]=pro></app-productcard>
+</div>
+</ng-template>

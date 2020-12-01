@@ -1,0 +1,16 @@
+- login 
+- add to cart => add without login =>session, cookie, ....
+              => with login
+checkout => total cart + coupon => on delivery => 5
+                                => visa => 0
+user => ondelivery not success => only visa
+model => products
+pages=> login, cart, wishlist, checkout, single products
+
+done:
+- register 
+- model => user 
+- pages => register, shop 
+- shared components => navbar, footer, pro card
+- product
+- loading indector
