@@ -1,19 +1,31 @@
-- add to cart => add without login =>session, cookie, ....
-              => with login
+- add to cart => with login
 checkout => total cart + coupon => on delivery => 5
                                 => visa => 0
 user => ondelivery not success => only visa
-pages=>  cart, wishlist, checkout, single products
+pages=>  cart, wishlist, checkout
 
 done:
-- login
+- login => interceptor done
 - register 
 - model => user 
-- pages => register, shop 
+- pages => register, shop , single product
 - shared components => navbar, footer, pro card
 - product
 - loading indector
-//model => products =>not nessesry
-
+- model => products =>not nessesry
+- add too cart without login
+-add to wish list without login
 
 //token_type access_token
+
+
+git add . => git commit -m "msg" => git push
+git clone link
+git pull
+
+
+routerLink 
+routerLinkActive
+activited router
+query parameters ?x=5
+base url

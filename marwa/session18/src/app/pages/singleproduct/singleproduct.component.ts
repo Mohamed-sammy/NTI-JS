@@ -17,6 +17,7 @@ product:any
   }
 
   getSingle(id){
+    //this.route.paramMap.subscribe(params=> {let i = params.get('id')})
     this._pro.getSingle(id).subscribe(data=>{
       this.product= data.result.product_data
       console.log(data.result.product_data)

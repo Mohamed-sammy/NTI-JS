@@ -3,11 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { SingleproductComponent } from './pages/singleproduct/singleproduct.component';
+import { TestrouteComponent } from './testroute/testroute.component';
 
 const routes: Routes = [
-  {path:'', component: ShopComponent},
   {path:'register', component:RegisterComponent},
-  {path:'shop/:id',component:SingleproductComponent}
+  //{path:'',redirectTo:'shop',pathMatch:'full'},
+  {path:'shop', children: [
+    {path:'',component:ShopComponent},
+    {path:':id',component:SingleproductComponent}, //shop/:id
+    {path:':key',component:SingleproductComponent}
+    // shop/152
+    // shop/code4045
+  ]
+},
+{path:'**', component:TestrouteComponent},
+
 ];
 
 @NgModule({

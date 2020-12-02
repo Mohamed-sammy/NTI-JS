@@ -12,6 +12,7 @@ import { ProductcardComponent } from './shared/productcard/productcard.component
 import { SingleproductComponent } from './pages/singleproduct/singleproduct.component';
 import { UserService } from './services/user.service';
 import { UserInterceptorInterceptor } from './services/user-interceptor.interceptor';
+import { TestrouteComponent } from './testroute/testroute.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserInterceptorInterceptor } from './services/user-interceptor.intercep
     FooterComponent,
     ShopComponent,
     ProductcardComponent,
-    SingleproductComponent
+    SingleproductComponent,
+    TestrouteComponent
   ],
   imports: [
     BrowserModule,

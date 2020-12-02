@@ -6,4 +6,7 @@
     {{product.discount_price}}
     {{product.flash_price}}
     <br>{{handelPrice(product)}}
+    <button (click)="addToCart(product.products_id)">add to cart</button>
+    <button (click)="addToWish(product.products_id)">add to wish</button>
+
 </div>
