@@ -1,12 +1,13 @@
-export interface User{
+export interface LoginUser{
     email:string
-    firstName:string
-    gender:number // 0, 1
-    lastName:string
     password:string
+    type: number
+}
+export interface User extends LoginUser{
+    firstName:string
+    lastName:string
+    gender:number // 0, 1
     phone:string
     re_password:string
-    type:number // 0
 }
-
 

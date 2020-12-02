@@ -1,3 +1,29 @@
-<p>login form  // logout</p>
 <a routerLink="/register">Register</a> - 
 <a routerLink="/">Home Page</a>
+
+<div *ngIf="errAlert">review data</div>
+<form #f="ngForm" (ngSubmit)="f.form.valid && LoginSubmit()">
+    <input 
+        placeholder="email"
+        [(ngModel)] = loginModel.email
+        #email = "ngModel"
+        [ngModelOptions]="{standalone:true}"
+        required
+        email
+        [ngClass]="{'errorData': (errAlert && email.touched) || f.submitted}"
+        (input)="errAlert=email.invalid"
+    >
+    <input 
+        placeholder="password" 
+        [type]="passwordStatus?'password':'text'"
+        required
+        [(ngModel)] = loginModel.password
+        #password = "ngModel"
+        [ngModelOptions]="{standalone:true}"
+        [ngClass]="{'errorData': (password.touched) || f.submitted}"
+        >
+        <span (click)="passwordStatus=!passwordStatus">
+            {{passwordStatus? 'show pass': 'hide pass'}}
+        </span>
+    <button type="submit">login</button>
+</form>
