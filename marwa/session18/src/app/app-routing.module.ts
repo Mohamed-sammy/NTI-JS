@@ -11,9 +11,6 @@ const routes: Routes = [
   {path:'shop', children: [
     {path:'',component:ShopComponent},
     {path:':id',component:SingleproductComponent}, //shop/:id
-    {path:':key',component:SingleproductComponent}
-    // shop/152
-    // shop/code4045
   ]
 },
 {path:'**', component:TestrouteComponent},

@@ -13,6 +13,7 @@ import { SingleproductComponent } from './pages/singleproduct/singleproduct.comp
 import { UserService } from './services/user.service';
 import { UserInterceptorInterceptor } from './services/user-interceptor.interceptor';
 import { TestrouteComponent } from './testroute/testroute.component';
+import { MustMatchDirective } from './directives/must-match.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TestrouteComponent } from './testroute/testroute.component';
     ShopComponent,
     ProductcardComponent,
     SingleproductComponent,
-    TestrouteComponent
+    TestrouteComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,

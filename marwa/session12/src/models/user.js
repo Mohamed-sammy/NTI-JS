@@ -58,8 +58,11 @@ address:[
             name:{type:String},
             city:{type:String}
             }
-}]
-})
+}]/*,
+pimage:{type:buffer}
+*/},
+{timestamps:true}
+)
 mySchema.virtual('task',{ //relation
     ref:'Task',
     localField:'_id',

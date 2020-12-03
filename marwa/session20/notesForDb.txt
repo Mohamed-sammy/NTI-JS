@@ -1,0 +1,19 @@
+                                medical system
+user => name, id, dob , add , .....
+paitents =>  id,type,history,...... - add, edit, forget pass, show, print history, .......
+spcializes=> id, name
+doctors => id, name, spcialize,..... - add, edit , ...
+nurses
+services => id , name, ....
+hospitals
+rays
+labs
+clinics
+pharmacy
+employees
+hr system=> mortbat, 7wafez, ....
+inventory =>
+cars
+.....
+
+

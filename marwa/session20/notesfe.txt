@@ -1,0 +1,20 @@
+ux:
+wireframe => xd design
+
+admin: =>super, emp, doc, pat, .......
+Models:
+
+services:
+
+interceptors
+
+
+pages:
+index
+patient=> add,edit,show history, show appoin...... (doc, emp, pat, nure)
+doctors =>....
+
+routes
+add,edit, deactivate, remove
+
+user:

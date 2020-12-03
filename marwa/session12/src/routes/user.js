@@ -2,9 +2,23 @@ const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/authmiddleware')
 const router = new express.Router()
+const multer = require('multer')
+const uploadFile = multer({
+    dest:'profiles',
+    limits:{
+        fileSize: 102400000
+    },
+    fileFilter(req,file,callBack){
+        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+            return callBack(new Error('please insert .....'))
+        }
+        callBack(undefined, true)
+    }
+})
 
-router.post('/user/add',(req,res)=>{
+router.post('/user/add',async (req,res)=>{
     const user = new User(req.body)
+   
     user.save().then(()=>{
         res.status(200).send({
             status:1,
@@ -18,9 +32,40 @@ router.post('/user/add',(req,res)=>{
     })
 })
 
-router.get('/users',auth,(req,res)=>{
+router.post('/user/profileImage',auth, uploadFile.single('file'),async(req,res)=>{
+    req.user.pimages = req.file.buffer
+    await req.user.save()
+},(err,req,res,next)=>{
+    res.send()
+
+})
+/*
+/users?age=35
+/users?limit=10&page=0  //skip page*limit  page = 0 0 1 10  2 20
+/users?sortby=id:desc [id], [desc]
+/users?sizes=[1,2,3]
+ */
+router.get('/users',(req,res)=>{
 //res.send(req.user)
-    User.find({}).then((users)=>{
+c={}
+// c.options = {
+//     limit:1,
+//     skip:1
+// }
+
+if(req.query.limit) limit = parseInt(req.query.limit)
+if(req.query.page) skip = parseInt(req.query.page)*limit
+if(req.query.sortby) {
+
+    sortby = req.query.sortby.split(':')
+    // sort={ (sortby[0].toString()): sortby[1]} **** error
+    sort.sortby[0] = sortby[1]
+
+}
+if(req.query.age) c.age = req.query.age
+console.log(c)
+  
+    User.find().limit(limit).skip(skip).sort({'name':-1}).then((users)=>{
         res.status(200).send(
             {
                 status:1,
@@ -33,6 +78,12 @@ router.get('/users',auth,(req,res)=>{
             data:e
         }
         ))
+/*
+req.user.populate({
+    path:'user',options:{skip:0,limit:0, sort}}).execPopulate
+})
+*/
+
 })
 
 router.get('/users/:id',(req,res)=>{
@@ -133,7 +184,11 @@ res.send(e)
 router.get('/me',auth,async(req,res)=>{
     res.send(req.user)
 })
+router.get('/me/img',auth,async(req,res)=>{
 
+    res.set('Content-Type','image/jpg')
+res.send(req.user.pimage)
+})
 router.delete('/me',auth,async(req,res)=>{
     try{
 await req.user.remove()
